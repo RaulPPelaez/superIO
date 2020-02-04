@@ -6,7 +6,7 @@ For that it can use std of boost depending on the USE_BOOST define flag.
 
 ```c++
 
-superIO::superFile in("fileName");
+superIO::superInputFile in("fileName");
 //The default constructor uses stdin
 
 if(!in.good()){
@@ -42,7 +42,7 @@ while(numberChars = in->getNextLine(line) or ! in.eof()){
 
 //In a similar way you can use superFile to write
 
-superIO::superFile out("fileName");
+superIO::superOutputFile out("fileName");
 
 float a=1.0f;
 int b = 2;
@@ -54,9 +54,9 @@ number2string(to_write, b);
 to_write +="\n";
 
 //Write the line to the file
-in.write(to_write.c_str(), to_write.size());
+out.write(to_write.c_str(), to_write.size());
 //Force to flush to disk
-in.flush();
+out.flush();
 
 //Now the file contains: 1.0 2
 
